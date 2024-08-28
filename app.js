@@ -18,6 +18,8 @@ app.use('/api/v1/tasks',tasks);
 const start = async()=>
 {
     try{
+        console.log("connecting to Db...");
+
         await connectDB(process.env.MONGOOSE_URI);
         console.log('connected to db');
         app.listen(port,console.log(`server is listening on port ${port}`))

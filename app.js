@@ -6,13 +6,15 @@ const tasks=require('./routes/routerTasks')
 const connectDB = require('./db/connect')
 require('dotenv').config()
 const port = 3000;
-//mideware
+
+//middleware
+app.use(express.static('./public')) //we need this middleware to use static files
 app.use(express.json())
 
 //just checking is the rouute is working
-app.get('/hello',(req,res)=>{
-    res.send("task manager app");
-})
+// app.get('/hello',(req,res)=>{
+//     res.send("task manager app");
+// })
 app.use('/api/v1/tasks',tasks);
 
 const start = async()=>
